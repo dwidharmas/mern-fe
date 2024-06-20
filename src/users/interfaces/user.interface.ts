@@ -1,4 +1,4 @@
-export type User = {
+export type UserType = {
   id: string,
   name: string,
   places: number,
@@ -6,5 +6,5 @@ export type User = {
 }
 
 export type UserListProps = {
-  items: User[]
+  items: UserType[]
 }

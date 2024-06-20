@@ -1,6 +1,6 @@
 import React from "react";
 
-import { MainHeaderProps } from "./navigation.interface";
+import { ComponentProps as MainHeaderProps } from "../../interfaces/global.interface";
 import "./MainHeader.css"
 
 const MainHeader = (props: MainHeaderProps) => {
