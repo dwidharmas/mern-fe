@@ -1,31 +1,31 @@
 # MERN-FE
 
-Proyek ini adalah hasil dari belajar di kursus Udemy: [React, NodeJS, Express & MongoDB - The MERN Fullstack Guide](https://www.udemy.com/course/react-nodejs-express-mongodb-the-mern-fullstack-guide).
+This project is the result of learning from the Udemy course: [React, NodeJS, Express & MongoDB - The MERN Fullstack Guide](https://www.udemy.com/course/react-nodejs-express-mongodb-the-mern-fullstack-guide).
 
-## Daftar Isi
+## Table of Contents
 
-- [Tentang Proyek](#tentang-proyek)
-- [Instalasi](#instalasi)
-- [Penggunaan](#penggunaan)
-- [Kontak](#kontak)
+- [About the Project](#about-the-project)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contact](#contact)
 
-## Tentang Proyek
+## About the Project
 
-Proyek ini adalah aplikasi frontend menggunakan React yang merupakan bagian dari stack MERN (MongoDB, Express, React, Node.js). Tujuan utama adalah untuk mempelajari dan mengimplementasikan konsep-konsep React yang dipelajari dalam kursus.
+This project is a frontend application using React, which is part of the MERN stack (MongoDB, Express, React, Node.js). The main goal is to learn and implement React concepts learned in the course.
 
-### Teknologi yang Digunakan
+### Technologies Used
 
 - React
 - CSS
 - JavaScript
 
-## Instalasi
+## Installation
 
-1. Clone repositori ini
+1. Clone this repository
     ```bash
     git clone https://github.com/dwidharmas/mern-fe.git
     ```
-2. Masuk ke direktori proyek
+2. Navigate to the project directory
     ```bash
     cd mern-fe
     ```
@@ -34,16 +34,16 @@ Proyek ini adalah aplikasi frontend menggunakan React yang merupakan bagian dari
     npm install
     ```
 
-## Penggunaan
+## Usage
 
-1. Jalankan aplikasi
+1. Run the application
     ```bash
     npm start
     ```
-2. Akses aplikasi di `http://localhost:3000`.
+2. Access the application at `http://localhost:3000`.
 
-## Kontak
+## Contact
 
 Dwi Dharma - dwi.dharma97@gmail.com
 
-Link Proyek: [https://github.com/dwidharmas/mern-fe](https://github.com/dwidharmas/mern-fe)
+Project Link: [https://github.com/dwidharmas/mern-fe](https://github.com/dwidharmas/mern-fe)
