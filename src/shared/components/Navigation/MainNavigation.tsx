@@ -5,48 +5,46 @@ import MainHeader from "./MainHeader.tsx";
 import NavLinks from "./NavLinks.tsx";
 import SideDrawer from "./SideDrawer.tsx";
 
-import "./MainNavigation.css"
+import "./MainNavigation.css";
 import Backdrop from "../UIElement/Backdrop/Backdrop.tsx";
 
 const MainNavigation = () => {
-  const [drawerIsOpen, setDrawerIsOpen] = useState(false)
+  const [drawerIsOpen, setDrawerIsOpen] = useState(false);
 
   const openDrawerHandler = () => {
-    setDrawerIsOpen(true)
-  }
+    setDrawerIsOpen(true);
+  };
 
   const closeDrawerHandler = () => {
-    setDrawerIsOpen(false)
-  }
+    setDrawerIsOpen(false);
+  };
 
   return (
     <>
-      {
-        drawerIsOpen && 
-        <Backdrop onClick={closeDrawerHandler}/>
-      }
+      {drawerIsOpen && <Backdrop onClick={closeDrawerHandler} />}
       <SideDrawer show={drawerIsOpen} onClick={closeDrawerHandler}>
         <nav className="main-navigation__drawer-nav">
           <NavLinks />
         </nav>
       </SideDrawer>
       <MainHeader>
-        <button className="main-navigation__menu-btn" onClick={openDrawerHandler}>
+        <button
+          className="main-navigation__menu-btn"
+          onClick={openDrawerHandler}
+        >
           <span></span>
           <span></span>
           <span></span>
         </button>
         <h1 className="main-navigation__title">
-          <Link to={"/"}>
-            Your Places
-          </Link>
+          <Link to={"/"}>Your Places</Link>
         </h1>
         <nav className="main-navigation__header-nav">
           <NavLinks />
         </nav>
       </MainHeader>
     </>
-  )
-}
+  );
+};
 
-export default MainNavigation
+export default MainNavigation;
