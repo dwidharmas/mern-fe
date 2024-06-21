@@ -8,5 +8,5 @@ export interface ComponentProps {
 
 export interface LocationsType {
   lat: number;
-  long: number;
+  lng: number;
 }

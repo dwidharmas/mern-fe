@@ -6,6 +6,7 @@ import Button from "../../shared/components/FormElements/Button/Button.tsx";
 
 import "./PlaceItem.css";
 import Modal from "../../shared/components/UIElement/Modal/Modal.tsx";
+import GMap from "../../shared/components/UIElement/Map/Map.tsx";
 
 const PlaceItem = (props: PlaceItemProps) => {
   const [showMap, setShowMap] = useState(false);
@@ -24,7 +25,7 @@ const PlaceItem = (props: PlaceItemProps) => {
         footer={<Button onClick={closeMapHandler}>CLOSE</Button>}
       >
         <div className="map-container">
-          <h2>THE MAP</h2>
+          <GMap center={props.coordinates} zoom={16} />
         </div>
       </Modal>
       <li className="place-item">
