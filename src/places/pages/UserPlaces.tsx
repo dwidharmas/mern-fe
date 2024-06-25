@@ -20,7 +20,7 @@ const DUMMY_PLACES: PlaceItemType[] = [
   },
   {
     id: "p2",
-    title: "EMPIRE STATE BUILDING",
+    title: "EMP STATE BUILDING",
     description: "One of the most famouse sky scrapper in the world",
     imageUrl:
       "https://upload.wikimedia.org/wikipedia/commons/1/10/Empire_State_Building_%28aerial_view%29.jpg",
