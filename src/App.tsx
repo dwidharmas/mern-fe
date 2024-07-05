@@ -13,17 +13,20 @@ import UserPlaces from "./places/pages/UserPlaces.tsx";
 import MainNavigation from "./shared/components/Navigation/MainNavigation.tsx";
 import UpdatePlace from "./places/pages/UpdatePlace.tsx";
 
-import { AuthContext } from "./shared/context/auth-context.jsx";
+import { AuthContext } from "./shared/context/auth-context.tsx";
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userId, setUserId] = useState<string | null>(null);
 
-  const login = useCallback(() => {
+  const login = useCallback((uid: string) => {
     setIsLoggedIn(true);
+    setUserId(uid);
   }, []);
 
   const logout = useCallback(() => {
     setIsLoggedIn(false);
+    setUserId(null);
   }, []);
 
   let routes;
@@ -65,7 +68,12 @@ const App = () => {
 
   return (
     <AuthContext.Provider
-      value={{ isLoggedIn: isLoggedIn, login: login, logout: logout }}
+      value={{
+        isLoggedIn: isLoggedIn,
+        userId: userId,
+        login: login,
+        logout: logout,
+      }}
     >
       <Router>
         <MainNavigation />

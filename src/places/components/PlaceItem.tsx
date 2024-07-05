@@ -8,7 +8,7 @@ import "./PlaceItem.css";
 import Modal from "../../shared/components/UIElement/Modal/Modal.tsx";
 import GMap from "../../shared/components/UIElement/Map/Map.tsx";
 
-import { AuthContext } from "../../shared/context/auth-context.jsx";
+import { AuthContext } from "../../shared/context/auth-context.tsx";
 
 const PlaceItem = (props: PlaceItemProps) => {
   const auth = useContext(AuthContext);

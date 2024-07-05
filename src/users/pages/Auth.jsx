@@ -13,7 +13,7 @@ import {
 } from "../../shared/util/validators";
 import { useHttpClient } from "../../shared/hooks/http-hook.tsx";
 import { useForm } from "../../shared/hooks/form-hook.tsx";
-import { AuthContext } from "../../shared/context/auth-context.jsx";
+import { AuthContext } from "../../shared/context/auth-context.tsx";
 import "./Auth.css";
 
 const Auth = () => {
@@ -60,7 +60,7 @@ const Auth = () => {
 
     if (isLoginMode) {
       try {
-        await sendRequest(
+        const responseData = await sendRequest(
           "http://localhost:8000/api/users/login",
           "POST",
           JSON.stringify({
@@ -72,11 +72,11 @@ const Auth = () => {
           }
         );
 
-        auth.login();
+        auth.login(responseData.user.id);
       } catch (error) {}
     } else {
       try {
-        await sendRequest(
+        const responseData = await sendRequest(
           "http://localhost:8000/api/users/signup",
           "POST",
           JSON.stringify({
@@ -89,7 +89,7 @@ const Auth = () => {
           }
         );
 
-        auth.login();
+        auth.login(responseData.user.id);
       } catch (error) {}
     }
   };
