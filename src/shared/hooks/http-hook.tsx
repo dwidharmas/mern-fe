@@ -32,11 +32,11 @@ export const useHttpClient = () => {
           throw new Error(responseData.message);
         }
 
-        setIsLoading(true);
+        setIsLoading(false);
         return responseData;
       } catch (error) {
         setError(error.message || "something went wrong, please try again");
-        setIsLoading(true);
+        setIsLoading(false);
         throw error;
       }
     },
