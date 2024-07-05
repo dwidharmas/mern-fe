@@ -31,8 +31,6 @@ const Auth = () => {
     },
     false
   );
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState();
 
   const switchModeHandler = () => {
     if (!isLoginMode) {
@@ -71,11 +69,7 @@ const Auth = () => {
             password: formState.inputs.password.value,
           }),
         });
-        const responseData = await response.json();
-        if (!response.ok) {
-          throw new Error(responseData.message);
-        }
-        setIsLoading(false);
+
         auth.login();
       } catch (error) {
         setIsLoading(false);
