@@ -3,6 +3,8 @@ import React, { useContext, useState } from "react";
 import Card from "../../shared/components/UIElement/Card/Card.tsx";
 import Input from "../../shared/components/FormElements/Input/Input.tsx";
 import Button from "../../shared/components/FormElements/Button/Button.tsx";
+import LoadingSpinner from "../../shared/components/UIElement/Spinner/LoadingSpinner.tsx";
+import ErrorModal from "../../shared/components/UIElement/ErrorModal/ErrorModal.tsx";
 
 import {
   VALIDATOR_EMAIL,
@@ -29,6 +31,8 @@ const Auth = () => {
     },
     false
   );
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setErrpr] = useState();
 
   const switchModeHandler = () => {
     if (!isLoginMode) {
@@ -57,6 +61,7 @@ const Auth = () => {
     if (isLoginMode) {
     } else {
       try {
+        setIsLoading(true);
         const response = await fetch("http://localhost:8000/api/users/signup", {
           method: "POST",
           headers: {
@@ -70,16 +75,20 @@ const Auth = () => {
         });
         const responseData = await response.json();
         console.log("response ", responseData);
+        setIsLoading(false);
+        auth.login();
       } catch (error) {
+        setIsLoading(false);
         console.log("error ", error);
+        setErrpr(error.message || "something went wrong, please try again");
       }
     }
 
     console.log("auth login ", formState.inputs);
-    auth.login();
   };
   return (
     <Card className="authentication">
+      {isLoading && <LoadingSpinner asOverlay />}
       <h2>Login Required</h2>
       <hr />
       <form onSubmit={authSubmitHanlder}>
