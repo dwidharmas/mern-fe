@@ -25,15 +25,20 @@ export const useHttpClient = () => {
         });
 
         const responseData = await response.json();
+        activeHttpRequest.current = activeHttpRequest.current.filter(
+          (reqCtrl: any) => reqCtrl !== httpAbortController
+        );
         if (!response.ok) {
           throw new Error(responseData.message);
         }
 
+        setIsLoading(true);
         return responseData;
       } catch (error) {
         setError(error.message || "something went wrong, please try again");
+        setIsLoading(true);
+        throw error;
       }
-      setIsLoading(true);
     },
     []
   );
