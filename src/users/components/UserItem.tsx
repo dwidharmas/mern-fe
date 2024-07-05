@@ -17,7 +17,8 @@ const UserItems = (props: UserType) => {
           <div className="user-item__info">
             <h2>{props.name}</h2>
             <h3>
-              {props.places} {props.places === 1 ? "place" : "places"}
+              {props.places.length}{" "}
+              {props.places.length === 1 ? "place" : "places"}
             </h3>
           </div>
         </Link>

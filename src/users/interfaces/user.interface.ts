@@ -1,10 +1,10 @@
 export type UserType = {
-  id: string,
-  name: string,
-  places: number,
-  image?: string,
-}
+  id: string;
+  name: string;
+  places: string[];
+  image?: string;
+};
 
 export type UserListProps = {
-  items: UserType[]
-}
+  items: UserType[];
+};
