@@ -23,9 +23,9 @@ const NavLinks = () => {
         <li>
           <NavLink
             isActive={() => {
-              return window.location.pathname === "/u1/places";
+              return window.location.pathname === `/${auth.userId}/places`;
             }}
-            to={"/u1/places"}
+            to={`/${auth.userId}/places`}
           >
             MY PLACES
           </NavLink>
