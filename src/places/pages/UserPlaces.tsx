@@ -1,44 +1,39 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { useHttpClient } from "../../shared/hooks/http-hook.tsx";
 
 import PlaceList from "../components/PlaceList.tsx";
-import { PlaceItemType } from "../interfaces/places.interface";
-
-const DUMMY_PLACES: PlaceItemType[] = [
-  {
-    id: "p1",
-    title: "EMPIRE STATE BUILDING",
-    description: "One of the most famouse sky scrapper in the world",
-    imageUrl:
-      "https://upload.wikimedia.org/wikipedia/commons/1/10/Empire_State_Building_%28aerial_view%29.jpg",
-    address: "Fifth Avenue (351) 34th Street (west, 20)",
-    locations: {
-      lat: 40.748817,
-      lng: -73.985428,
-    },
-    creator: "u1",
-  },
-  {
-    id: "p2",
-    title: "EMP STATE BUILDING",
-    description: "One of the most famouse sky scrapper in the world",
-    imageUrl:
-      "https://upload.wikimedia.org/wikipedia/commons/1/10/Empire_State_Building_%28aerial_view%29.jpg",
-    address: "Fifth Avenue (351) 34th Street (west, 20)",
-    locations: {
-      lat: 40.748817,
-      lng: -73.985428,
-    },
-    creator: "u2",
-  },
-];
+import ErrorModal from "../../shared/components/UIElement/ErrorModal/ErrorModal.tsx";
+import LoadingSpinner from "../../shared/components/UIElement/Spinner/LoadingSpinner.tsx";
 
 const UserPlaces = () => {
   const { uid }: { uid: string } = useParams();
+  const [loadedPlaces, setLoadedPlaces] = useState();
+  const { isLoading, error, sendRequest, clearError } = useHttpClient();
 
-  const places = DUMMY_PLACES.filter((place) => place.creator === uid);
+  useEffect(() => {
+    const fetchPlaces = async () => {
+      try {
+        const responseData = await sendRequest(
+          `http://localhost:8000/api/places/user/${uid}`
+        );
+        setLoadedPlaces(responseData.places);
+      } catch (error) {}
+    };
+    fetchPlaces();
+  }, [sendRequest, uid]);
 
-  return <PlaceList items={places} />;
+  return (
+    <>
+      <ErrorModal error={error} onClear={clearError} />
+      {isLoading && (
+        <div className="center">
+          <LoadingSpinner />
+        </div>
+      )}
+      {!isLoading && loadedPlaces && <PlaceList items={loadedPlaces} />}
+    </>
+  );
 };
 
 export default UserPlaces;
