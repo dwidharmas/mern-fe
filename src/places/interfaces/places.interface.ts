@@ -13,6 +13,7 @@ export type PlaceItemType = {
 
 export type PlaceListType = {
   items: PlaceItemType[];
+  onDeletePlace: (id: string) => void;
 };
 
 export interface PlaceItemProps {
@@ -23,4 +24,5 @@ export interface PlaceItemProps {
   address: string;
   creatorId: UserType["id"];
   coordinates: LocationsType;
+  onDelete: (id: string) => void;
 }
