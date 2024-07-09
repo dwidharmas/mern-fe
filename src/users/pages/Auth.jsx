@@ -5,6 +5,7 @@ import Input from "../../shared/components/FormElements/Input/Input.tsx";
 import Button from "../../shared/components/FormElements/Button/Button.tsx";
 import LoadingSpinner from "../../shared/components/UIElement/Spinner/LoadingSpinner.tsx";
 import ErrorModal from "../../shared/components/UIElement/ErrorModal/ErrorModal.tsx";
+import ImageUpload from "../../shared/components/FormElements/ImageUpload/ImageUpload.tsx";
 
 import {
   VALIDATOR_EMAIL,
@@ -113,6 +114,7 @@ const Auth = () => {
               onInput={inputHandler}
             />
           )}
+          {!isLoginMode && <ImageUpload center id="image" />}
           <Input
             id="email"
             element="input"
